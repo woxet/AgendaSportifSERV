@@ -3,7 +3,6 @@ package prj.agendasportif;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlRootElement;
-import org.springframework.boot.jackson.JsonComponent;
 
 @Entity
 @Table(name = "\"user\"")
