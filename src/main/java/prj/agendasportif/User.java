@@ -1,9 +1,13 @@
 package prj.agendasportif;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import org.springframework.boot.jackson.JsonComponent;
 
 @Entity
 @Table(name = "\"user\"")
+@XmlRootElement
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,7 +23,7 @@ public class User {
         this.name = name;
         this.age = age;
     }
-
+    @JsonProperty("id")
     public int getId() {
         return id;
     }
@@ -27,7 +31,7 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
-
+    @JsonProperty("name")
     public String getName() {
         return name;
     }
@@ -35,7 +39,7 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-
+    @JsonProperty("age")
     public int getAge() {
         return age;
     }
@@ -43,13 +47,12 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
-
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
+        return "{" +
+                "\"id\": " + id +
+                ", \"name\": \"" + name + '\"' +
+                ", \"age\": " + age +
                 '}';
     }
 }
